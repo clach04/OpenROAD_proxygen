@@ -1,8 +1,6 @@
 ProxyGen
 ========
 
-ProxyGen version 1.0 release 2, 10 Jun 2008
-
 Introduction
 ------------
 
@@ -67,8 +65,8 @@ You may want to study the examples found by following the links below
 for a brief tutorial and demonstration of some of ProxyGen's
 capabilities.
 
-[Java Example 1](java/examples/example1/index.html)\
- [C\# Example 1](csharp/examples/example1/index.html)\
+  * [Java Example 1](java/examples/example1/index.html)
+  * [C\# Example 1](csharp/examples/example1/index.html)
 
 Tips
 ----
@@ -82,8 +80,9 @@ templates showing what blocks of code will be written to generated
 files. Select a template from the "Template Jobs:" table and click the
 table control (top right of table) then "Edit Template...".
 
-ProxyGen can be run in batch mode by using the "-/appflags
-jobfile=\[location of config XML file\]" switch at the command line.
+ProxyGen can be run in batch mode by using the
+`-/appflags jobfile=\[location of config XML file\]`
+switch at the command line.
 Running proxygen.bat simplifies this by taking an optional single
 argument which will be used as a jobfile.
 
@@ -107,9 +106,11 @@ config file.
 History
 -------
 
-Version 1.0 release 1\
- Initial Open Source release with Java templates and examples.
+Version 1.0 release 1
 
-Version 1.0 release 2\
- Simplified Installer process. Added C\# templates and example.
+Initial Open Source release with Java templates and examples.
+
+Version 1.0 release 2
+
+Simplified Installer process. Added C\# templates and example.
 Documentation converted to HTML.
