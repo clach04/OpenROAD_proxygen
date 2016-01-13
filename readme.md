@@ -65,8 +65,8 @@ You may want to study the examples found by following the links below
 for a brief tutorial and demonstration of some of ProxyGen's
 capabilities.
 
-  * [Java Example 1](java/examples/example1/index.html)
-  * [C# Example 1](csharp/examples/example1/index.html)
+  * [Java Example 1](java/examples/example1/readme.md)
+  * [C# Example 1](csharp/examples/example1/readme.md)
 
 Tips
 ----

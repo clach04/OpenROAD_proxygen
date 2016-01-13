@@ -1,8 +1,6 @@
 Java Example 1
 ==============
 
-ProxyGen version 1.0 release 2, 10 Jun 2008
-
 Running The Example Code.
 -------------------------
 
