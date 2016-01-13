@@ -11,7 +11,7 @@ The concept behind ProxyGen is that it can take the metadata describing
 an OpenROAD Application Server Application (ASA) and turn that into
 proxy classes using templates designed for a specific language.
 
-ProxyGen is appropriate for generating code for Java, C\# and other
+ProxyGen is appropriate for generating code for Java, C# and other
 languages.
 
 ProxyGen has already been used on large commercial projects to
@@ -66,7 +66,7 @@ for a brief tutorial and demonstration of some of ProxyGen's
 capabilities.
 
   * [Java Example 1](java/examples/example1/index.html)
-  * [C\# Example 1](csharp/examples/example1/index.html)
+  * [C# Example 1](csharp/examples/example1/index.html)
 
 Tips
 ----
@@ -112,5 +112,5 @@ Initial Open Source release with Java templates and examples.
 
 Version 1.0 release 2
 
-Simplified Installer process. Added C\# templates and example.
+Simplified Installer process. Added C# templates and example.
 Documentation converted to HTML.
