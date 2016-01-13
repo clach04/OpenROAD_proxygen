@@ -40,11 +40,28 @@ significantly reduce development time.
 Requirements
 ------------
 
-Both Ingres 2006 and OpenROAD 2006 will need to be installed.\
- To use the Java templates you will need Java 5 or above.
+Both Ingres and OpenROAD (6.2) will need to be installed.
+To use the Java templates you will need Java 5 or above.
 
 Getting Started
 ---------------
+
+Sequence of steps:
+
+  * import code
+  * build code
+  * run image
+
+### Windows example
+
+    createdb proxygen
+    cd src
+    w4gldev backupapp in proxygen ProxyGen ProxyGen.xml -nREPLACE
+    cd ..
+    w4gldev makeimage proxygen ProxyGen ProxyGen.img
+    set PROXYGEN=%CD%
+    proxygen.bat
+
 
 You may want to study the examples found by following the links below
 for a brief tutorial and demonstration of some of ProxyGen's
