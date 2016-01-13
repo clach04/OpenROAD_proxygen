@@ -1,0 +1,223 @@
+<root>
+<jobs>
+<job set="1" inputfile="..\..\DTCGen.tpl" outputfile="GeneratedCode\DTC\*U*${class_langname}.cs" />
+<job set="3" inputfile="..\..\Populator.tpl" outputfile="GeneratedCode\${AppService Name}Populator.cs" />
+<job set="3" inputfile="..\..\DePopulator.tpl" outputfile="GeneratedCode\${AppService Name}Depopulator.cs" />
+<job set="2" inputfile="..\..\Facade.tpl" outputfile="GeneratedCode\Facdes\${AppService Name}Facade.cs" />
+<job set="4" inputfile="..\..\SCPW.tpl" outputfile="GeneratedCode\SCPW\${altscp_name}SCPW.cs" />
+</jobs>
+<metadata>
+<sub desc="Byref Prefix" find="^b_UC" replace=""/>
+<sub desc="Byval Prefix" find="^p_UC" replace=""/>
+<sub desc="" find="^p_arr_UC" replace=""/>
+<sub desc="" find="^b_arr_UC" replace=""/>
+<sub desc="" find="^b_" replace=""/>
+<sub desc="" find="^p_" replace=""/>
+<sub desc="OR Class Filename Prefix" find="^uc_" replace=""/>
+<sub desc="OR Class prefix" find="^UC" replace=""/>
+<sub desc="Array Prefix" find="^arr_UC" replace=""/>
+<sub desc="OR Class suffix" find="_dtc" replace="DTC"/>
+<sub desc="TRUE" find="TRUE" replace="1"/>
+<sub desc="FALSE" find="FALSE" replace="0"/>
+<sub desc="Date Prefix" find="^d_" replace=""/>
+<sub desc="Integer Prefix" find="^i_" replace=""/>
+<sub desc="SmallInt" find="^s_" replace=""/>
+<sub desc="Money Prefix" find="^m_" replace=""/>
+<sub desc="String Prefix" find="^v_" replace=""/>
+<sub desc="Float Prefix" find="^f_" replace=""/>
+<sub desc="Underscore A" find="_a" replace="A"/>
+<sub desc="Underscore B" find="_b" replace="B"/>
+<sub desc="Underscore C" find="_c" replace="C"/>
+<sub desc="Underscore D" find="_d" replace="D"/>
+<sub desc="Underscore E" find="_e" replace="E"/>
+<sub desc="Underscore F" find="_f" replace="F"/>
+<sub desc="Underscore G" find="_g" replace="G"/>
+<sub desc="Underscore H" find="_h" replace="H"/>
+<sub desc="Underscore I" find="_i" replace="I"/>
+<sub desc="Underscore J" find="_j" replace="J"/>
+<sub desc="Underscore K" find="_k" replace="K"/>
+<sub desc="Underscore L" find="_l" replace="L"/>
+<sub desc="Underscore M" find="_m" replace="M"/>
+<sub desc="Underscore N" find="_n" replace="N"/>
+<sub desc="Underscore O" find="_o" replace="O"/>
+<sub desc="Underscore P" find="_p" replace="P"/>
+<sub desc="Underscore Q" find="_q" replace="Q"/>
+<sub desc="Underscore R" find="_r" replace="R"/>
+<sub desc="Underscore S" find="_s" replace="S"/>
+<sub desc="Underscore T" find="_t" replace="T"/>
+<sub desc="Underscore U" find="_u" replace="U"/>
+<sub desc="Underscore V" find="_v" replace="V"/>
+<sub desc="Underscore W" find="_w" replace="W"/>
+<sub desc="Underscore X" find="_x" replace="X"/>
+<sub desc="Underscore Y" find="_y" replace="Y"/>
+<sub desc="Underscore Z" find="_z" replace="Z"/>
+
+</metadata>
+<global>
+<sub desc="AppService Name" find="${AppService Name}" replace="Example1"/>
+<sub desc="Nameserver connection name" find="${aka_name}" replace="Example1"/>
+<sub desc="Namespace for generated code" find="${namespace_prefix}" replace="Luminary.ProxyGen.Examples.Example1"/>
+<sub desc="Metagen file location" find="${metagenfile}" replace=""/>
+    <sub desc="Copyright holder" find="${copyright_holder}" replace="Luminary - An Ingres Company"/>
+<sub desc="Class Prefix" find="${class_prefix}" replace=""/>
+<sub desc="Type  Prefix" find="${type_prefix}" replace="_"/>
+<sub desc="DTC to DTO" find="DTC*DTO*" replace="DTO"/>
+<sub desc="Remove DTO" find="*DTO*" replace=""/>
+<sub desc="DTO Lists" find="DTO*List*" replace="List"/>
+<sub desc="DTO Classes" find="DTO*Class*" replace=""/>
+<sub desc="Lists" find="*List*" replace=""/>
+<sub desc="Classes" find="*Class*" replace=""/>
+<sub desc="Uppercase A" find="*U*a" replace="A"/>
+<sub desc="Uppercase B" find="*U*b" replace="B"/>
+<sub desc="Uppercase C" find="*U*c" replace="C"/>
+<sub desc="Uppercase D" find="*U*d" replace="D"/>
+<sub desc="Uppercase E" find="*U*e" replace="E"/>
+<sub desc="Uppercase F" find="*U*f" replace="F"/>
+<sub desc="Uppercase G" find="*U*g" replace="G"/>
+<sub desc="Uppercase H" find="*U*h" replace="H"/>
+<sub desc="Uppercase I" find="*U*i" replace="I"/>
+<sub desc="Uppercase J" find="*U*j" replace="J"/>
+<sub desc="Uppercase K" find="*U*k" replace="K"/>
+<sub desc="Uppercase L" find="*U*l" replace="L"/>
+<sub desc="Uppercase M" find="*U*m" replace="M"/>
+<sub desc="Uppercase N" find="*U*n" replace="N"/>
+<sub desc="Uppercase O" find="*U*o" replace="O"/>
+<sub desc="Uppercase P" find="*U*p" replace="P"/>
+<sub desc="Uppercase Q" find="*U*q" replace="Q"/>
+<sub desc="Uppercase R" find="*U*r" replace="R"/>
+<sub desc="Uppercase S" find="*U*s" replace="S"/>
+<sub desc="Uppercase T" find="*U*t" replace="T"/>
+<sub desc="Uppercase U" find="*U*u" replace="U"/>
+<sub desc="Uppercase V" find="*U*v" replace="V"/>
+<sub desc="Uppercase W" find="*U*w" replace="W"/>
+<sub desc="Uppercase X" find="*U*x" replace="X"/>
+<sub desc="Uppercase Y" find="*U*y" replace="Y"/>
+<sub desc="Uppercase Z" find="*U*z" replace="Z"/>
+<sub desc="Remove Uppercase" find="*U*" replace=""/>
+<sub desc="Lowercase A" find="*L*A" replace="a"/>
+<sub desc="Lowercase B" find="*L*B" replace="b"/>
+<sub desc="Lowercase C" find="*L*C" replace="c"/>
+<sub desc="Lowercase D" find="*L*D" replace="d"/>
+<sub desc="Lowercase E" find="*L*E" replace="e"/>
+<sub desc="Lowercase F" find="*L*F" replace="f"/>
+<sub desc="Lowercase G" find="*L*G" replace="g"/>
+<sub desc="Lowercase H" find="*L*H" replace="h"/>
+<sub desc="Lowercase I" find="*L*I" replace="i"/>
+<sub desc="Lowercase J" find="*L*J" replace="j"/>
+<sub desc="Lowercase K" find="*L*K" replace="k"/>
+<sub desc="Lowercase L" find="*L*L" replace="l"/>
+<sub desc="Lowercase M" find="*L*M" replace="m"/>
+<sub desc="Lowercase N" find="*L*N" replace="n"/>
+<sub desc="Lowercase O" find="*L*O" replace="o"/>
+<sub desc="Lowercase P" find="*L*P" replace="p"/>
+<sub desc="Lowercase Q" find="*L*Q" replace="q"/>
+<sub desc="Lowercase R" find="*L*R" replace="r"/>
+<sub desc="Lowercase S" find="*L*S" replace="s"/>
+<sub desc="Lowercase T" find="*L*T" replace="t"/>
+<sub desc="Lowercase U" find="*L*U" replace="u"/>
+<sub desc="Lowercase V" find="*L*V" replace="v"/>
+<sub desc="Lowercase W" find="*L*W" replace="w"/>
+<sub desc="Lowercase X" find="*L*X" replace="x"/>
+<sub desc="Lowercase Y" find="*L*Y" replace="y"/>
+<sub desc="Lowercase Z" find="*L*Z" replace="z"/>
+<sub desc="Remove Lowercase" find="*L*" replace=""/>
+
+</global>
+<types>
+<type name="byte">
+<sub desc="Language Type" find="${lang_type}" replace="${type}"/>
+</type>
+
+<type name="bytearray">
+<sub desc="Language Type" find="${lang_type}" replace="${type}"/>
+</type>
+
+<type name="datetime">
+<sub desc="Language Type" find="${lang_type}" replace="DateTime"/>
+<sub desc="Type" find="${type}" replace="DateTime"/>
+<sub desc="Default Value" find="${default_value}" replace="new DateTime()"/>
+<sub desc="PDO" find="${PDOtype}" replace="DATE"/>
+<sub desc="Access" find="${access}" replace="Date"/>
+<sub desc="DataType" find="${datatype}" replace="Constants.OR_ASA_DATATYPE_DATE"/>
+<sub desc="Default Reference" find="${ref}" replace=""/>
+</type>
+
+<type name="decimal">
+<sub desc="Language Type" find="${lang_type}" replace="${type}"/>
+</type>
+
+<type name="double">
+<sub desc="Language Type" find="${lang_type}" replace="${type}"/>
+<sub desc="Default" find="${default_value}" replace="0.0"/>
+<sub desc="Access" find="${access}" replace="Double"/>
+<sub desc="DataType" find="${datatype}" replace="Constants.OR_ASA_DATATYPE_FLOAT"/>
+<sub desc="Default Reference" find="${ref}" replace=""/>
+</type>
+
+<type name="float">
+<sub desc="Language Type" find="${lang_type}" replace="${type}"/>
+<sub desc="Default Value" find="${default_value}" replace="0.0"/>
+<sub desc="PDO" find="${PDOtype}" replace="FLOAT"/>
+<sub desc="Access" find="${access}" replace="Double"/>
+<sub desc="Datatype" find="${datatype}" replace="Constants.OR_ASA_DATATYPE_FLOAT"/>
+<sub desc="Default Reference" find="${ref}" replace=""/>
+</type>
+
+<type name="int">
+<sub desc="Language Type" find="${lang_type}" replace="${type}"/>
+<sub desc="Default Value" find="${default_value}" replace="0"/>
+<sub desc="Access" find="${access}" replace="Integer"/>
+<sub desc="Datatype" find="${datatype}" replace="Constants.OR_ASA_DATATYPE_INTEGER"/>
+<sub desc="Default Reference" find="${ref}" replace=""/>
+</type>
+
+<type name="money">
+<sub desc="Language Type" find="${lang_type}" replace="${type}"/>
+<sub desc="Type" find="${type}" replace="decimal"/>
+<sub desc="Default Value" find="${default_value}" replace="0"/>
+<sub desc="PDOType" find="${PDOtype}" replace="MONEY"/>
+<sub desc="Datatype" find="${datatype}" replace="Constants.OR_ASA_DATATYPE_MONEY"/>
+<sub desc="Access" find="${access}" replace="Decimal"/>
+<sub desc="Default Reference" find="${ref}" replace=""/>
+</type>
+
+<type name="short">
+<sub desc="Language Type" find="${lang_type}" replace="${type}"/>
+<sub desc="Default Value" find="${default_value}" replace="0"/>
+<sub desc="PDO" find="${PDOtype}" replace="INTEGER"/>
+<sub desc="Access" find="${access}" replace="Short"/>
+<sub desc="Datatype" find="${datatype}" replace="Constants.OR_ASA_DATATYPE_SMALL_INTEGER"/>
+<sub desc="Default Reference" find="${ref}" replace=""/>
+</type>
+
+<type name="string">
+<sub desc="Language Type" find="${lang_type}" replace="${type}"/>
+<sub desc="Default Value" find="${default_value}" replace=""/>
+<sub desc="PDO" find="${PDOtype}" replace="STRING"/>
+<sub desc="Access" find="${access}" replace="String"/>
+<sub desc="Datatype" find="${datatype}" replace="Constants.OR_ASA_DATATYPE_STRING"/>
+<sub desc="Default Reference" find="${ref}" replace=""/>
+</type>
+
+</types>
+<scps>
+<scp name="SCP_HelloWorld">
+    <param name="b_v_test">
+        <sub desc="" find="${ref}" replace="ref"/>
+    </param>
+</scp>
+<scp name="SCP_Swap">
+    <param name="b_v_test1">
+        <sub desc="" find="${ref}" replace="ref"/>
+    </param>
+    <param name="b_v_test2">
+        <sub desc="" find="${ref}" replace="ref"/>
+    </param>
+</scp>
+<scp name="SCP_Capitalise">
+    <param name="b_v_test">
+        <sub desc="" find="${ref}" replace="ref"/>
+    </param>
+</scp>
+</scps>
+</root>

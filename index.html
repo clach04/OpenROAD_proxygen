@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<TITLE>ProxyGen Documentation</TITLE>
+<STYLE>
+BODY {
+    margin: 20px 60px 60px 60px;
+    font-family: sans-serif;
+}
+
+H1 {
+    font-size: 40;
+    font-style: oblique;
+    font-variant: small-caps;
+    color: 46A2E6;
+    text-align: right;
+}
+
+H2 {
+    font-variant: small-caps;
+}
+
+H3 {
+    font-style: oblique;
+}
+
+.versioninfo {
+    font-style: oblique;
+    color: 46A2E6;
+    text-align: right;
+}
+
+</STYLE>
+</HEAD>
+<BODY>
+<H1>ProxyGen</H1>
+<P class="versioninfo">ProxyGen version 1.0 release 2, 10 Jun 2008</P>
+<H2>Introduction</H2>
+
+<P>ProxyGen is a code generation tool for generating proxies to classes, methods
+and procedures exposed by the OpenROAD Server.<P/>
+
+<P>The concept behind ProxyGen is that it can take the metadata describing an OpenROAD
+Application Server Application (ASA) and turn that into proxy classes using templates designed for a specific language.<P/>
+
+<P>ProxyGen is appropriate for generating code for Java, C# and other
+languages.<P/>
+
+<P>ProxyGen has already been used on large commercial projects to significantly
+reduce development time.<P/>
+
+<P>
+<h3>ProxyGen features</h3>
+<UL>
+
+    <LI>It greatly reduces the need to hand crank calls to OpenROAD applications
+        by wrapping the low level drivers with easy-to-use application-specific
+        classes.
+
+    <LI>It makes calls to OpenROAD procedures and methods in a consistent and
+        object oriented way.
+
+    <LI>It generates code which complies with language and project coding
+        standards.
+
+    <LI>It easily regenerates your proxies if your OpenROAD application or
+        requirements change.
+
+    <LI>It directly reads metadata from your OpenROAD Application Server or from disk.
+
+    <LI>It has a simple and easy to use GUI and XML configuration file.
+
+    <LI>It can run in batch mode as part of a build (see Tips).
+
+    <LI>And much more, such as renameing classes, attributes, parameters via configuration files.
+</UL>
+<P/>
+
+<H2>Requirements</H2>
+
+<P>Both Ingres 2006 and OpenROAD 2006 will need to be installed.<BR>
+To use the Java templates you will need Java 5 or above.<P/>
+
+
+
+<H2>Getting Started</H2>
+
+<P>You may want to study the examples found by following the links below for a brief tutorial and demonstration of some of ProxyGen's capabilities.<P/>
+
+<P>
+<A href="java/examples/example1/index.html">Java Example 1</A><BR>
+<A href="csharp/examples/example1/index.html">C# Example 1</A><BR>
+</P>
+
+<H2>Tips</H2>
+
+<P>It is advisable to make a copy of the default templates or configuration files before  applying any changes. In this way it is possible to revert back to the default settings at any time.<P/>
+
+<P>The "Edit Template" view can be a useful debugging tool for your templates showing what blocks of code will be written to generated files. Select a template from the "Template Jobs:" table and click the table control (top right of table) then "Edit Template...".<P/>
+
+<P>ProxyGen can be run in batch mode by using the "-/appflags jobfile=[location of config XML file]" switch at the command line. Running proxygen.bat simplifies this by taking an optional single argument which will be used as a jobfile.</P>
+
+<H2>Known Issues</H2>
+
+<P>Template files must have at least one empty line at the top of the file.<P/>
+
+<P>The Java template file is a simple foundation template. Further templates will be made available.<P/>
+
+<P>The template editor is a work-in-progress and so should only be used to view existing templates and not for template creation.<P/>
+
+<P>In batch mode the current working directory is not set to the location of the config file as it is when using the GUI. For this reason relative paths in your config file may not be correct. To avoid this either use only absolute paths or run proxygen.bat from the same directory as your config file.</P>
+
+<H2>History</H2>
+<P>
+<U>Version 1.0 release 1</U><BR>
+Initial Open Source release with Java templates and examples.
+</P>
+<P>
+<U>Version 1.0 release 2</U><BR>
+Simplified Installer process. Added C# templates and example. Documentation converted to HTML.
+</P>
+</BODY>
+</HTML>

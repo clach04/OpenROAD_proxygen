@@ -70,6 +70,7 @@ public class ${class_prefix}${proxy_class_name}
     }
 
 <<FOREACHSCP>>
+<<!NAME=>>(DefineBPM)(CreateASOSession)(DestroyASOSession)(Ping)
 <<!GENSCP>>(method)
 
     /**
@@ -81,30 +82,32 @@ public class ${class_prefix}${proxy_class_name}
      * Description : Calls the ${scp_name} procedure
      *
 <<FOREACHPARAM>>
+<<!NAME=>>(p_so_xmlin)(b_osca)(b_so_xml)(p_arr_UCXML_Include)
 <<ARRAY>>
 <<!DV_NULL>>
-     * @param ${langname} ${class_prefix}${type}[] default system
+    private ArrayList<${class_prefix}*U*${type}> *L*${langname} = new ArrayList<${class_prefix}*U*${type}>();
 <<!DV_NULL>>
 <<DV_NULL>>
-     * @param ${langname} ${class_prefix}${type}[] default null
+    private ArrayList<${class_prefix}*U*${type}> *L*${langname} = null;
 <<DV_NULL>>
 <<ARRAY>>
 <<CLASS>>
 <<!DV_NULL>>
-     * @param ${langname} ${class_prefix}${type} default system
+     * @param *L*${langname} ${class_prefix}*U*${type} default system
 <<!DV_NULL>>
 <<DV_NULL>>
-     * @param ${langname} ${class_prefix}${type} default null
+     * @param *L*${langname} ${class_prefix}*U*${type} default null
 <<DV_NULL>>
 <<CLASS>>
 <<SCALAR>>
 <<!DV_NULL>>
-     * @param ${langname} ${type} default ${default_value}
+     * @param *L*${langname} ${type} default ${default_value}
 <<!DV_NULL>>
 <<DV_NULL>>
-     * @param ${langname} ${type} default null
+     * @param *L*${langname} ${type} default null
 <<DV_NULL>>
 <<SCALAR>>
+<<!NAME=>>(p_so_xmlin)(b_osca)(b_so_xml)(p_arr_UCXML_Include)
 <<FOREACHPARAM>>
      * @throws COMException
      * @throws IllegalArgumentException
@@ -124,30 +127,32 @@ public class ${class_prefix}${proxy_class_name}
 
             // Declare Attributes
 <<FOREACHPARAM>>
-            pset.remove("${langname}");
+<<!NAME=>>(p_so_xmlin)(b_osca)(b_so_xml)(p_arr_UCXML_Include)
+            pset.remove("*L*${langname}");
 <<ARRAY>>
 
-            if (params.containsKey("${langname}"))
+            if (params.containsKey("*L*${langname}"))
             {
                 byref.declareAttr("${name}", "UCARRAY");
-                new ${class_prefix}${type}(null).declareAttributes(byref, "${name}");
+                new ${class_prefix}*U*${type}(null).declareAttributes(byref, "${name}");
             }
 <<ARRAY>>
 <<CLASS>>
 
-            if (params.containsKey("${langname}"))
+            if (params.containsKey("*L*${langname}"))
             {
                 byref.declareAttr("${name}", "USERCLASS");
-                new ${class_prefix}${type}(null).declareAttributes(byref, "${name}");
+                new ${class_prefix}*U*${type}(null).declareAttributes(byref, "${name}");
             }
 <<CLASS>>
 <<SCALAR>>
 
-            if (params.containsKey("${langname}"))
+            if (params.containsKey("*L*${langname}"))
             {
                 byref.declareAttr("${name}","${PDOtype}");
             }
 <<SCALAR>>
+<<!NAME=>>(p_so_xmlin)(b_osca)(b_so_xml)(p_arr_UCXML_Include)
 <<FOREACHPARAM>>
 
             // Check if the caller passed in a unknown parameter
@@ -159,81 +164,82 @@ public class ${class_prefix}${proxy_class_name}
 
             // Setup the data.
 <<FOREACHPARAM>>
+<<!NAME=>>(p_so_xmlin)(b_osca)(b_so_xml)(p_arr_UCXML_Include)
 <<ARRAY>>
-            if (params.containsKey("${langname}"))
+
+            if (params.containsKey("*L*${langname}"))
             {
-                if (params.get("${langname}") == null)
+                if (params.get("*L*${langname}") == null)
                 {
                     byref.setNull("${name}");
                 }
-                else
-                {
-                    ${class_prefix}${type}[] iiarrtmp =
-                        (${class_prefix}${type}[])params.get("${langname}");
-                    for(int i=0;i< iiarrtmp.length;i++)
+                else {
+                    ArrayList<${class_prefix}*U*${type}> iiarrtmp = (ArrayList<${class_prefix}*U*${type}>)params.get("*L*${langname}");
+                    int count = 1;
+                    for(${class_prefix}*U*${type} userClass : iiarrtmp)
                     {
-                        ${class_prefix}${type} iiobtmp = iiarrtmp[i];
-                        iiobtmp.setAttributes(byref, "${name}[" + i + "]");
+                        userClass.setAttributes(byref, "${name}[" + count++ + "]");
                     }
                 }
             }
 <<ARRAY>>
 <<CLASS>>
-            if (params.containsKey("${langname}"))
+            if (params.containsKey("*L*${langname}"))
             {
-                if (params.get("${langname}") == null)
+                if (params.get("*L*${langname}") == null)
                 {
                     byref.setNull("${name}");
                 }
                 else
                 {
-                    ${class_prefix}${type} iiobtmp = (${class_prefix}${type}) params.get("${langname}");
+                    ${class_prefix}*U*${type} iiobtmp = (${class_prefix}*U*${type}) params.get("*L*${langname}");
                     iiobtmp.setAttributes(byref, "${name}");
                 }
             }
 <<CLASS>>
 <<SCALAR>>
 <<ONLYIF>><<BYTEARRAY>><<STRING>><<FLOAT>><<BYTE>><<DOUBLE>><<SHORT>><<DECIMAL>><<INT>><<MONEY>>
-            if (params.containsKey("${langname}"))
+            if (params.containsKey("*L*${langname}"))
             {
-                if (params.get("${langname}") == null)
+                if (params.get("*L*${langname}") == null)
                 {
                     byref.setNull("${name}");
                 }
                 else
                 {
-                    byref.set${accesstype}("${name}", (${type})params.get("${langname}"));
+                    byref.set${accesstype}("${name}", (${type})params.get("*L*${langname}"));
                 }
             }
 <<ONLYIF>><<BYTEARRAY>><<STRING>><<FLOAT>><<BYTE>><<DOUBLE>><<SHORT>><<DECIMAL>><<INT>><<MONEY>>
 <<ONLYIF>><<DATETIME>>
-            if (params.containsKey("${langname}"))
+            if (params.containsKey("*L*${langname}"))
             {
-                if (params.get("${langname}") == null)
+                if (params.get("*L*${langname}") == null)
                 {
                     byref.setNull("${name}");
                 }
                 else
                 {
-                    if (params.get("${langname}").equals(OpenROADDate.BLANK_DATE))
+                    if (params.get("*L*${langname}").equals(OpenROADDate.BLANK_DATE))
                     {
                         byref.setBlankDate("${name}");
                     }
                     else
                     {
-                        if (OpenROADDateTime.class.isInstance(params.get("${langname}"))
+                        if (OpenROADDateTime.class.isInstance(params.get("*L*${langname}"))
                         {
-                            byref.setDate("${name}", (Date)params.get("${langname}"));
+                            byref.setDate("${name}", (Date)params.get("*L*${langname}"));
                         }
                         else
                         {
-                            byref.setDateWithoutTime("${name}", (Date)params.get("${langname}"));
+                            byref.setDateWithoutTime("${name}", (Date)params.get("*L*${langname}"));
                         }
                     }
                 }
             }
 <<ONLYIF>><<DATETIME>>
 <<SCALAR>>
+<<!NAME=>>(p_so_xmlin)(b_osca)(b_so_xml)(p_arr_UCXML_Include)
 <<FOREACHPARAM>>
 
             // Do the call
@@ -241,72 +247,74 @@ public class ${class_prefix}${proxy_class_name}
             this.aso.callProc("${scp_name}", null, byref);
 <<GENSCP>>(procedure)
 <<!GENSCP>>
-            this.aso.getRSO().callProc("${scp_name}", null, byref);
+            RemoteServer ro = this.aso.getRSO();
+            ro.callProc("${scp_name}", null, byref);
+            ro.release();
 <<!GENSCP>>
 <<FOREACHPARAM>>
+<<!NAME=>>(p_so_xmlin)(b_osca)(b_so_xml)(p_arr_UCXML_Include)
 <<ARRAY>>
 
-            if (params.containsKey("${langname}"))
+            if (params.containsKey("*L*${langname}"))
             {
-                params.remove("${langname}");
+                params.remove("*L*${langname}");
 
                 if (byref.isNull("${name}") == false)
                 {
-                    int ii_count = byref.lastRow("${name}");
-                    ${class_prefix}${type}[] ${langname} = new ${class_prefix}${type}[ii_count];
+                    ArrayList<${class_prefix}*U*${type}> *L*${langname} = new ArrayList<${class_prefix}*U*${type}>();
 
-                    for(int i=1; i<=ii_count; i++)
+                    for(int i=1; i<=byref.lastRow("${name}"); i++)
                     {
-                        ${class_prefix}${type} iiobtmp = new ${class_prefix}${type}(this.aso);
+                        ${class_prefix}*U*${type} iiobtmp = new ${class_prefix}*U*${type}(this.aso);
                         iiobtmp.populateAttributes(byref, "${name}[" + i + "]");
-                        ${langname}[i-1] = iiobtmp;
+                        *L*${langname}.add(iiobtmp);
                     }
-                    params.put("${langname}", ${langname});
+                    params.put("*L*${langname}", *L*${langname});
                 }
                 else
                 {
-                    params.put("${langname}", null);
+                    params.put("*L*${langname}", null);
                 }
             }
 <<ARRAY>>
 <<CLASS>>
 
-            if (params.containsKey("${langname}"))
+            if (params.containsKey("*L*${langname}"))
             {
-                params.remove("${langname}");
+                params.remove("*L*${langname}");
 
                 if (byref.isNull("${name}") == false)
                 {
-                  ${class_prefix}${type} ${name} = new ${class_prefix}${type}(this.aso);
+                  ${class_prefix}*U*${type} ${name} = new ${class_prefix}*U*${type}(this.aso);
                   ${name}.populateAttributes(byref, "${name}");
-                  params.put("${langname}", ${name});
+                  params.put("*L*${langname}", ${name});
                 }
                 else
                 {
-                    params.put("${langname}", null);
+                    params.put("*L*${langname}", null);
                 }
             }
 <<CLASS>>
 <<SCALAR>>
 <<ONLYIF>><<BYTEARRAY>><<STRING>><<FLOAT>><<BYTE>><<DOUBLE>><<SHORT>><<DECIMAL>><<INT>><<MONEY>>
 
-            if (params.containsKey("${langname}"))
+            if (params.containsKey("*L*${langname}"))
             {
-                params.remove("${langname}");
+                params.remove("*L*${langname}");
 
                 if (byref.isNull("${name}") == false)
                 {
-                    params.put("${langname}", byref.get${accesstype}("${name}"));
+                    params.put("*L*${langname}", byref.get${accesstype}("${name}"));
                 }
                 else
                 {
-                    params.put("${langname}", null);
+                    params.put("*L*${langname}", null);
                 }
             }
 <<ONLYIF>><<BYTEARRAY>><<STRING>><<FLOAT>><<BYTE>><<DOUBLE>><<SHORT>><<DECIMAL>><<INT>><<MONEY>>
 <<ONLYIF>><<DATETIME>>
 
-            if (params.containsKey("${langname}"))
+            if (params.containsKey("*L*${langname}"))
             {
                 if (byref.isNull("${name}") == false)
                 {
@@ -314,21 +322,22 @@ public class ${class_prefix}${proxy_class_name}
                     {
                         if (byref.isDateWithoutTime("${name}"))
                         {
-                            params.put("${langname}", new OpenROADDate(byref.getDate("${name}").getTime()));
+                            params.put("*L*${langname}", new OpenROADDate(byref.getDate("${name}").getTime()));
                         }
                         else
                         {
-                            params.put("${langname}", new OpenROADDateTime(byref.getDate("${name}").getTime()));
+                            params.put("*L*${langname}", new OpenROADDateTime(byref.getDate("${name}").getTime()));
                         }
                     }
                     else
                     {
-                        params.put("${langname}", OpenROADDate.BLANK_DATE);
+                        params.put("*L*${langname}", OpenROADDate.BLANK_DATE);
                     }
                 }
             }
 <<ONLYIF>><<DATETIME>>
 <<SCALAR>>
+<<!NAME=>>(p_so_xmlin)(b_osca)(b_so_xml)(p_arr_UCXML_Include)
 <<FOREACHPARAM>>
 <<GENSCP>>(procedure)
             switch(this.aso.getOscaErrorType())
@@ -360,5 +369,6 @@ public class ${class_prefix}${proxy_class_name}
         }
     }
 <<!GENSCP>>(method)
+<<!NAME=>>(DefineBPM)(CreateASOSession)(DestroyASOSession)(Ping)
 <<FOREACHSCP>>
 }

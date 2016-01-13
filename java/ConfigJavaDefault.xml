@@ -1,17 +1,63 @@
 <root>
 <jobs>
-<job set='1' inputfile='jproxy1.tpl' outputfile='${lib_path}\${app_name}\${class_prefix}${class_name}.java' />
-<job set='2' inputfile='jproxy2.tpl' outputfile='${lib_path}\${app_name}\${class_prefix}${proxy_class_name}.java' />
+<job set="1" inputfile="jproxy1.tpl" outputfile="${lib_path}\${app_name}\${class_prefix}*U*${class_langname}.java" />
+<job set="2" inputfile="jproxy2.tpl" outputfile="${lib_path}\${app_name}\${class_prefix}${proxy_class_name}.java" />
 </jobs>
+<metadata>
+    <sub desc='Byref Prefix' find='^b_UC' replace=''/>
+    <sub desc='Byval Prefix' find='^p_UC' replace=''/>
+    <sub desc='' find='^p_arr_UC' replace=''/>
+    <sub desc='' find='^b_arr_UC' replace=''/>
+    <sub desc='' find='^b_' replace=''/>
+    <sub desc='' find='^p_' replace=''/>
+    <sub desc='OR Class Filename Prefix' find='^uc_' replace=''/>
+    <sub desc='OR Class prefix' find='^UC' replace=''/>
+    <sub desc='Array Prefix' find='^arr_UC' replace=''/>
+    <sub desc='OR Class suffix' find='_dtc' replace='DTC'/>
+    <sub desc='TRUE' find='TRUE' replace='1'/>
+    <sub desc='FALSE' find='FALSE' replace='0'/>
+    <sub desc='Date Prefix' find='^d_' replace=''/>
+    <sub desc='Integer Prefix' find='^i_' replace=''/>
+    <sub desc='SmallInt' find='^s_' replace=''/>
+    <sub desc='Money Prefix' find='^m_' replace=''/>
+    <sub desc='String Prefix' find='^v_' replace=''/>
+    <sub desc='Float Prefix' find='^f_' replace=''/>
+    <sub desc='Underscore A' find='_a' replace='A'/>
+    <sub desc='Underscore B' find='_b' replace='B'/>
+    <sub desc='Underscore C' find='_c' replace='C'/>
+    <sub desc='Underscore D' find='_d' replace='D'/>
+    <sub desc='Underscore E' find='_e' replace='E'/>
+    <sub desc='Underscore F' find='_f' replace='F'/>
+    <sub desc='Underscore G' find='_g' replace='G'/>
+    <sub desc='Underscore H' find='_h' replace='H'/>
+    <sub desc='Underscore I' find='_i' replace='I'/>
+    <sub desc='Underscore J' find='_j' replace='J'/>
+    <sub desc='Underscore K' find='_k' replace='K'/>
+    <sub desc='Underscore L' find='_l' replace='L'/>
+    <sub desc='Underscore M' find='_m' replace='M'/>
+    <sub desc='Underscore N' find='_n' replace='N'/>
+    <sub desc='Underscore O' find='_o' replace='O'/>
+    <sub desc='Underscore P' find='_p' replace='P'/>
+    <sub desc='Underscore Q' find='_q' replace='Q'/>
+    <sub desc='Underscore R' find='_r' replace='R'/>
+    <sub desc='Underscore S' find='_s' replace='S'/>
+    <sub desc='Underscore T' find='_t' replace='T'/>
+    <sub desc='Underscore U' find='_u' replace='U'/>
+    <sub desc='Underscore V' find='_v' replace='V'/>
+    <sub desc='Underscore W' find='_w' replace='W'/>
+    <sub desc='Underscore X' find='_x' replace='X'/>
+    <sub desc='Underscore Y' find='_y' replace='Y'/>
+    <sub desc='Underscore Z' find='_z' replace='Z'/>
+</metadata>
 <global>
     <sub desc="Remove default SCP prefix for java method names" find="^*L*SCP_" replace="*L*"/>
     <sub desc="Copyright holder" find="${copyright_holder}" replace=""/>
     <sub desc="Proxy class name" find="${proxy_class_name}" replace="Proxy"/>
-    <sub desc='Nameserver connection name' find='${aka_name}' replace=''/>
-    <sub desc='Metagen file location (leave blank to retreive from server)' find='${metagenfile}' replace=''/>
-    <sub desc='Prefix to all generated classes' find='${class_prefix}' replace=''/>
-    <sub desc='Top level package name' find='${lib_name}' replace='com.mycompany.myapp'/>
-    <sub desc='Directory structure for top level package' find='${lib_path}' replace='com\mycompany\myapp'/>
+    <sub desc="Nameserver connection name" find="${aka_name}" replace=""/>
+    <sub desc="Metagen file location (leave blank to retreive from server)" find="${metagenfile}" replace=""/>
+    <sub desc="Prefix to all generated classes" find="${class_prefix}" replace=""/>
+    <sub desc="Top level package name" find="${lib_name}" replace="com.mycompany.myapp"/>
+    <sub desc="Directory structure for top level package" find="${lib_path}" replace="com\mycompany\myapp"/>
 
     <sub desc="Uppercase A" find="*U*a" replace="A"/>
     <sub desc="Uppercase B" find="*U*b" replace="B"/>
@@ -69,65 +115,65 @@
     <sub desc="Remove Lowercase" find="*L*" replace=""/>
 </global>
 <types>
-    <type name='byte'>
-        <sub desc='Java PDO uses getXXXX/setXXXX' find='${accesstype}' replace='Integer'/>
-        <sub desc='Default value' find='${default_value}' replace='0'/>
-        <sub desc='Java PDO type' find='${PDOtype}' replace='SMALLINT'/>
-        <sub desc='Java class to represent this type' find='${type}' replace='Integer'/>
+    <type name="byte">
+        <sub desc="Java PDO uses getXXXX/setXXXX" find="${accesstype}" replace="Integer"/>
+        <sub desc="Default value" find="${default_value}" replace="0"/>
+        <sub desc="Java PDO type" find="${PDOtype}" replace="SMALLINT"/>
+        <sub desc="Java class to represent this type" find="${type}" replace="Integer"/>
     </type>
-    <type name='bytearray'>
-        <sub desc='Java PDO uses getXXXX/setXXXX' find='${accesstype}' replace='ByteArray'/>
-        <sub desc='Default value' find='${default_value}' replace=''/>
-        <sub desc='Java PDO type' find='${PDOtype}' replace='BINARY'/>
-        <sub desc='Java class to represent this type' find='${type}' replace='byte[]'/>
+    <type name="bytearray">
+        <sub desc="Java PDO uses getXXXX/setXXXX" find="${accesstype}" replace="ByteArray"/>
+        <sub desc="Default value" find="${default_value}" replace=""/>
+        <sub desc="Java PDO type" find="${PDOtype}" replace="BINARY"/>
+        <sub desc="Java class to represent this type" find="${type}" replace="byte[]"/>
     </type>
-    <type name='datetime'>
-        <sub desc='Java PDO uses getXXXX/setXXXX' find='${accesstype}' replace='Date'/>
-        <sub desc='Default value' find='${default_value}' replace=''/>
-        <sub desc='Java PDO type' find='${PDOtype}' replace='DATE'/>
-        <sub desc='Java class to represent this type' find='${type}' replace='OpenROADDate'/>
+    <type name="datetime">
+        <sub desc="Java PDO uses getXXXX/setXXXX" find="${accesstype}" replace="Date"/>
+        <sub desc="Default value" find="${default_value}" replace=""/>
+        <sub desc="Java PDO type" find="${PDOtype}" replace="DATE"/>
+        <sub desc="Java class to represent this type" find="${type}" replace="OpenROADDate"/>
     </type>
-    <type name='decimal'>
-        <sub desc='Java PDO uses getXXXX/setXXXX' find='${accesstype}' replace='Double'/>
-        <sub desc='Default value' find='${default_value}' replace='0'/>
-        <sub desc='Java PDO type' find='${PDOtype}' replace='FLOAT'/>
-        <sub desc='Java class to represent this type' find='${type}' replace='Double'/>
+    <type name="decimal">
+        <sub desc="Java PDO uses getXXXX/setXXXX" find="${accesstype}" replace="Double"/>
+        <sub desc="Default value" find="${default_value}" replace="0"/>
+        <sub desc="Java PDO type" find="${PDOtype}" replace="FLOAT"/>
+        <sub desc="Java class to represent this type" find="${type}" replace="Double"/>
     </type>
-    <type name='double'>
-        <sub desc='Java PDO uses getXXXX/setXXXX' find='${accesstype}' replace='Double'/>
-        <sub desc='Default value' find='${default_value}' replace='0'/>
-        <sub desc='Java PDO type' find='${PDOtype}' replace='FLOAT'/>
-        <sub desc='Java class to represent this type' find='${type}' replace='Double'/>
+    <type name="double">
+        <sub desc="Java PDO uses getXXXX/setXXXX" find="${accesstype}" replace="Double"/>
+        <sub desc="Default value" find="${default_value}" replace="0"/>
+        <sub desc="Java PDO type" find="${PDOtype}" replace="FLOAT"/>
+        <sub desc="Java class to represent this type" find="${type}" replace="Double"/>
     </type>
-    <type name='float'>
-        <sub desc='Java PDO uses getXXXX/setXXXX' find='${accesstype}' replace='Double'/>
-        <sub desc='Default value' find='${default_value}' replace='0'/>
-        <sub desc='Java PDO type' find='${PDOtype}' replace='FLOAT'/>
-        <sub desc='Java class to represent this type' find='${type}' replace='Double'/>
+    <type name="float">
+        <sub desc="Java PDO uses getXXXX/setXXXX" find="${accesstype}" replace="Double"/>
+        <sub desc="Default value" find="${default_value}" replace="0"/>
+        <sub desc="Java PDO type" find="${PDOtype}" replace="FLOAT"/>
+        <sub desc="Java class to represent this type" find="${type}" replace="Double"/>
     </type>
-    <type name='int'>
-        <sub desc='Java PDO uses getXXXX/setXXXX' find='${accesstype}' replace='Integer'/>
-        <sub desc='Default value' find='${default_value}' replace='0'/>
-        <sub desc='Java PDO type' find='${PDOtype}' replace='INTEGER'/>
-        <sub desc='Java class to represent this type' find='${type}' replace='Integer'/>
+    <type name="int">
+        <sub desc="Java PDO uses getXXXX/setXXXX" find="${accesstype}" replace="Integer"/>
+        <sub desc="Default value" find="${default_value}" replace="0"/>
+        <sub desc="Java PDO type" find="${PDOtype}" replace="INTEGER"/>
+        <sub desc="Java class to represent this type" find="${type}" replace="Integer"/>
     </type>
-    <type name='money'>
-        <sub desc='Java PDO uses getXXXX/setXXXX' find='${accesstype}' replace='Double'/>
-        <sub desc='Default value' find='${default_value}' replace='0'/>
-        <sub desc='Java PDO type' find='${PDOtype}' replace='FLOAT'/>
-        <sub desc='Java class to represent this type' find='${type}' replace='Double'/>
+    <type name="money">
+        <sub desc="Java PDO uses getXXXX/setXXXX" find="${accesstype}" replace="Double"/>
+        <sub desc="Default value" find="${default_value}" replace="0"/>
+        <sub desc="Java PDO type" find="${PDOtype}" replace="FLOAT"/>
+        <sub desc="Java class to represent this type" find="${type}" replace="Double"/>
     </type>
-    <type name='short'>
-        <sub desc='Java PDO uses getXXXX/setXXXX' find='${accesstype}' replace='Integer'/>
-        <sub desc='Default value' find='${default_value}' replace='0'/>
-        <sub desc='Java PDO type' find='${PDOtype}' replace='SMALLINT'/>
-        <sub desc='Java class to represent this type' find='${type}' replace='Integer'/>
+    <type name="short">
+        <sub desc="Java PDO uses getXXXX/setXXXX" find="${accesstype}" replace="Integer"/>
+        <sub desc="Default value" find="${default_value}" replace="0"/>
+        <sub desc="Java PDO type" find="${PDOtype}" replace="SMALLINT"/>
+        <sub desc="Java class to represent this type" find="${type}" replace="Integer"/>
     </type>
-    <type name='string'>
-        <sub desc='Java PDO uses getXXXX/setXXXX' find='${accesstype}' replace='String'/>
-        <sub desc='Default value' find='${default_value}' replace=''/>
-        <sub desc='Java PDO type' find='${PDOtype}' replace='STRING'/>
-        <sub desc='Java class to represent this type' find='${type}' replace='String'/>
+    <type name="string">
+        <sub desc="Java PDO uses getXXXX/setXXXX" find="${accesstype}" replace="String"/>
+        <sub desc="Default value" find="${default_value}" replace=""/>
+        <sub desc="Java PDO type" find="${PDOtype}" replace="STRING"/>
+        <sub desc="Java class to represent this type" find="${type}" replace="String"/>
     </type>
 </types>
 </root>

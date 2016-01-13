@@ -1,0 +1,138 @@
+﻿<HTML>
+<HEAD>
+<TITLE>Java Example 1</TITLE>
+<STYLE>
+BODY {
+    margin: 20px 60px 60px 60px;
+    font-family: sans-serif;
+}
+
+H1 {
+    font-size: 40;
+    font-style: oblique;
+    font-variant: small-caps;
+    color: 46A2E6;
+    text-align: right;
+}
+
+H2 {
+    font-variant: small-caps;
+}
+
+H3 {
+    font-style: oblique;
+}
+
+LI {
+    padding: 5px;
+}
+
+.versioninfo {
+    font-style: oblique;
+    color: 46A2E6;
+    text-align: right;
+}
+
+</STYLE>
+</HEAD>
+<BODY>
+<H1>Java Example 1</H1>
+<P class="versioninfo">ProxyGen version 1.0 release 2, 10 Jun 2008</P>
+<H2>Running The Example Code.</H2>
+<P>
+</P>
+<OL>
+
+<LI>Open OpenROAD Workbench Classic.
+
+<LI>Create a new Application in Workbench "Example1".
+
+<LI>Add to it three 4GL procedures "Capitalise", "HelloWorld" and "Swap".
+
+<LI>Make sure "Generate SCP" is selected and the SCP name is the same as the procedure name prefixed with "SCP_"
+
+<LI>Copy the following code to the relevant procedures just created:
+
+<PRE>
+PROCEDURE Capitalise
+(
+    b_v_test = VARCHAR(50) NOT NULL WITH DEFAULT,
+) =
+DECLARE
+ENDDECLARE
+BEGIN
+    b_v_test = UPPER(b_v_test);
+    CurProcedure.Trace('**** Capitalise called ****');
+END
+
+PROCEDURE HelloWorld
+(
+    b_v_test = VARCHAR(14) NOT NULL WITH DEFAULT,
+) =
+DECLARE
+ENDDECLARE
+BEGIN
+    b_v_test = 'Hello World!';
+    CurProcedure.Trace('**** HelloWorld called ****');
+END
+
+PROCEDURE Swap
+(
+    b_v_test1 = VARCHAR(50) NOT NULL WITH DEFAULT,
+    b_v_test2 = VARCHAR(50) NOT NULL WITH DEFAULT,
+) =
+DECLARE
+    v_temp    = VARCHAR(50) NOT NULL WITH DEFAULT,
+ENDDECLARE
+BEGIN
+    v_temp    = b_v_test1;
+    b_v_test1 = b_v_test2;
+    b_v_test2 = v_temp;
+    CurProcedure.Trace('**** Swap called ****');
+END
+</PRE>
+
+<LI>Add a ghost frame as the entry point of your application.
+    <OL TYPE=a>
+        <LI>Click "File" > "New" > "Ghost Frame".
+        <LI>Name it "Example1" and click "Create".
+        <LI>Click "View" > "Application Properties".
+        <LI>Click the button next to "Starting Component" and select "Example1" from the list click "OK".
+        <LI>Click "Apply" , then "Close".
+    </OL>
+<LI>Click "Tools" > "Make Image".
+
+<LI>Tick "Force Compilation", "Generate SCPs" and "Generate SCP Metadata".
+
+<LI>Export it as Example1.img to "%II_W4GLAPPS_DIR%" directory which by defaul is "%II_SYSTEM%\w4glapps".
+
+<LI>Run Visual OpenROAD Server Administrator (VOSA) and register the image.
+    <OL TYPE=a>
+        <LI>In the tree expand your computer and then Local.
+        <LI> Click "Edit" > "Register".
+        <LI>In the right pane hange "Name" to Example1 and "Image" to Example1.img.
+        <LI> Click "File" > "Save".
+    </OL>
+
+<LI>Run ProxyGen and load the ConfigJavaExample1.xml file.
+
+<LI>Click the "Generate" icon or click "Generate" > "Run" from the menu.
+
+<LI>Open a command shell and change directory to the Java example1 directory.
+
+<LI>In the command shell run "build.bat" by typing "build".
+
+<LI>In the command shell type "run", you should see the following output
+
+<PRE>
+Called HelloWorld got: "Hello World!"
+Called Capitalise with HelloWorld result got: "HELLO WORLD!"
+Called Swap with "String 1" and "String 2" got: "String 2" and "String 1"
+</PRE>
+</OL>
+
+If you get an Exception you may be able to find help on the Ingres community forums or wiki:<BR>
+<A href="http://community.ingres.com/wiki/Main_Page">http://community.ingres.com/wiki/Main_Page</A><BR>
+<A href="http://community.ingres.com/forums/">http://community.ingres.com/forums/</A><BR>
+</BODY>
+</HTML>

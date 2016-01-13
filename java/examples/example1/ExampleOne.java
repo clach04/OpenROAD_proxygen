@@ -40,7 +40,7 @@ public class ExampleOne
      * <pre>
      * Description : Program entry point. Expect no arguments (but doesn't check). Will connect to
      *               an OpenRoad Example appliction, call some methods and print the results then
-     *               exit (See README.TXT).
+     *               exit (See HTML Document).
      *
      * @param argv command line arguments
      * @throws Exception
@@ -59,25 +59,25 @@ public class ExampleOne
             //Initialise the generated proxy object
             Proxy proxy = new Proxy(aso);
 
-            params.put("b_v_test", "");
+            params.put("test", "");
             proxy.helloWorld(params);
             System.out.println("Called SCP_HelloWorld got: \"" +
-                                                            (String)params.get("b_v_test") + "\"");
+                                                            (String)params.get("test") + "\"");
 
             //You can reuse the params object because SCP_Capitalise takes the same parameters as
             //SCP_HelloWorld
             proxy.capitalise(params);
             System.out.println("Called SCP_Capitalise with SCP_HelloWorld result got: \"" +
-                                                            (String)params.get("b_v_test") + "\"");
+                                                            (String)params.get("test") + "\"");
 
              //set params for call to swap
             params.clear();
-            params.put("b_v_test1", "String 1");
-            params.put("b_v_test2", "String 2");
+            params.put("test1", "String 1");
+            params.put("test2", "String 2");
             proxy.swap(params);
             System.out.println("Called SCP_Swap with \"String 1\" and \"String 2\" got: \"" +
-                                                   (String)params.get("b_v_test1") + "\" and \""  +
-                                                           (String)params.get("b_v_test2") + "\"");
+                                                   (String)params.get("test1") + "\" and \""  +
+                                                           (String)params.get("test2") + "\"");
         }
         finally
         {

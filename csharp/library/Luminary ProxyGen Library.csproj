@@ -1,0 +1,58 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0EAAC1CD-F1BD-4353-A208-466DE841DC01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>Luminary ProxyGen Library</AssemblyName>
+    <RootNamespace>Luminary_ProxyGen_Library</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants\Constants.cs" />
+    <Compile Include="Enumerators\Enumerators.cs" />
+    <Compile Include="ExceptionObjects\APIException.cs" />
+    <Compile Include="ExceptionObjects\SCPCallException.cs" />
+    <Compile Include="ExceptionObjects\SCPConnectException.cs" />
+    <Compile Include="ExceptionObjects\SCPInvalidArgumentException.cs" />
+    <Compile Include="ExceptionObjects\SCPInvalidDataException.cs" />
+    <Compile Include="ExceptionObjects\SCPTimeoutException.cs" />
+    <Compile Include="OpenRoad\AttributeManager.cs" />
+    <Compile Include="OpenRoad\BaseFacade.cs" />
+    <Compile Include="OpenRoad\OSCA.cs" />
+    <Compile Include="OpenRoad\SCPWrapperBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ORRSOLib">
+      <Guid>{9804E906-495A-11D4-A083-00C04F740D30}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
